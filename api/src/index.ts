@@ -1,8 +1,9 @@
 import { Elysia } from 'elysia';
 import { connect } from 'mongoose';
 import { cors } from '@elysiajs/cors';
+import { auth } from './lib/auth';
 
-await connect(process.env.MONGODB_URL!);
+await connect(process.env.MONGODB_URL!, { dbName: process.env.NODE_ENV! });
 console.log(`Connected to database: ${process.env.NODE_ENV!}`);
 
 const app = new Elysia()
@@ -14,6 +15,7 @@ const app = new Elysia()
       allowedHeaders: ['Content-Type', 'Authorization']
     })
   )
+  .mount(auth.handler)
   .get('/', () => 'Hello Elysia')
   .listen(process.env.PORT!);
 
