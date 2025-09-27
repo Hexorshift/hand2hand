@@ -23,7 +23,20 @@ export const auth = betterAuth({
       }
     }
   },
-  trustedOrigins: ['http://localhost:5173'],
+  advanced: {
+    crossSubDomainCookies: {
+      enabled: process.env.NODE_ENV === 'production',
+      domain: '*'
+    }
+  },
+  trustedOrigins: ['http://localhost:5173', 'https://hand2hand.pages.dev'],
+  account: {
+    modelName: 'accounts',
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ['google', 'discord']
+    }
+  },
   session: {
     modelName: 'sessions',
     cookieCache: {
