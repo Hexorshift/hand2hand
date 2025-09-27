@@ -61,13 +61,13 @@ export function Home() {
             Welcome, {session?.user.name}
           </Text>
           {/* All tags selected */}
-          {selectedTags.map((tag: any) => {
+          {/* {selectedTags.map((tag: any) => {
             return (
               <Tag.Root>
                 <Tag.Label>{tag}</Tag.Label>
               </Tag.Root>
             );
-          })}
+          })} */}
           {/* Search bar for tags */}
           <Field.Root>
             <Input
