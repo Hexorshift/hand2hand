@@ -8,7 +8,6 @@ import {
   Select,
   Portal,
   createListCollection,
-  Tag,
   GridItem,
   SimpleGrid,
   Stack,

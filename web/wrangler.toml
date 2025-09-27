@@ -1,0 +1,8 @@
+name = "production"
+
+pages_build_output_dir = "dist"
+
+[env.production.vars]
+BUN_VERSION = "1.2.22"
+VITE_BASE_URL = "https://hand2hand-api.onrender.com"
+VITE_HOME_URL = ""
