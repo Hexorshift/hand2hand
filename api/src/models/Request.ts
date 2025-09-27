@@ -3,9 +3,13 @@ import { Types, Schema, model } from 'mongoose';
 export interface Request {
   _id: Types.ObjectId;
   flagged: Boolean;
-  requesterId: Types.ObjectId;
-  accepterId: Types.ObjectId;
-  content: string;
+  requester: Types.ObjectId;
+  accepter: Types.ObjectId;
+  request: string;
+  offer: string;
+  visiblity: string;
+  duration: number;
+  location: string;
   requesterCompleted: boolean;
   accepterCompleted: boolean;
   tags: [Types.ObjectId];
@@ -16,19 +20,24 @@ export interface Request {
 
 const RequestSchema = new Schema<Request>(
   {
-    requesterId: {
+    flagged: { type: Boolean, default: false },
+    requester: {
       type: Schema.Types.ObjectId,
       ref: 'User',
       required: true
     },
-    accepterId: {
+    accepter: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-      required: true
+      required: false
     },
     requesterCompleted: { type: Boolean, default: false },
     accepterCompleted: { type: Boolean, default: false },
-    content: { type: String, required: true },
+    request: { type: String, required: true },
+    offer: { type: String, required: true },
+    visiblity: { type: String, required: true },
+    location: { type: String, required: true },
+    duration: { type: Number, required: true },
     tags: {
       type: [Schema.Types.ObjectId],
       ref: 'Tag',

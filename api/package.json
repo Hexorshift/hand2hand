@@ -12,7 +12,7 @@
     "@types/bun": "^1.2.22"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "@elysiajs/cors": "^1.4.0",
