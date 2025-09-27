@@ -10,7 +10,7 @@ console.log(`Connected to database: ${process.env.NODE_ENV!}`);
 const app = new Elysia()
   .use(
     cors({
-      origin: ['http://localhost:5173'],
+      origin: ['http://localhost:5173', 'https://hand2hand.pages.dev'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true,
       allowedHeaders: ['Content-Type', 'Authorization']
